@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping("/api/v1/post")
 @RequiredArgsConstructor
@@ -54,4 +56,8 @@ public class PostsController {
     public ResponseEntity check(@PathVariable Integer user_id,@PathVariable String status){
      return ResponseEntity.status(HttpStatus.OK).body(postsService.getPuser(user_id, status));
     }
+//    @GetMapping("/date/{user_id}/{date}")
+//    public ResponseEntity getBydate(@PathVariable Integer user_id, @PathVariable Date date){
+//        return ResponseEntity.status(HttpStatus.OK).body(postsService.date(date));
+//    }
 }

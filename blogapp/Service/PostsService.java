@@ -8,6 +8,7 @@ import com.example.blogapp.Repository.UserRepsitory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -69,7 +70,7 @@ public class PostsService {
         }
                         oldPost.setTitle(posts.getTitle());
                         oldPost.setContent(posts.getContent());
-                        oldPost.setPublication_date(posts.getPublication_date());
+                        //oldPost.setPublication_date(posts.getPublication_date());
                         postsRepository.save(oldPost);
     }
 public void deletePost(Integer id){
@@ -100,5 +101,13 @@ public void deletePost(Integer id){
         }
         return posts;
     }
+
+//   public List<Posts> date(Date date){
+//        List<Posts> posts=postsRepository.findPostsByPublication_dateAfter(date);
+//        if(posts==null){
+//            throw new ApiException("not found");
+//        }
+//        return posts;
+//   }
 
 }

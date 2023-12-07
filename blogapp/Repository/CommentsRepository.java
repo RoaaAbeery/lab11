@@ -12,6 +12,14 @@ public interface CommentsRepository extends JpaRepository<Comments,Integer> {
     Comments findCommentsById(Integer id);
     @Query("select c from Comments c where c.post_id=?1")
     List<Comments> findCommentsByPost_id(Integer post_id);
-    @Query("select c from Comments c where c.content=?1")
-    Comments findCommentsByContent(String content);
+    @Query("select c from Comments  c where c.post_id=?1 and c.user_id=?2")
+     Comments findCommentsByPost_idAndUser_id(Integer post_id,Integer user_id);
+
+
+
+
+
+
+//    @Query("select c from Comments c where c.content=?1")
+//    Comments findCommentsByContent(String content);
 }

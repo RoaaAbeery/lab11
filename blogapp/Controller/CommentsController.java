@@ -46,9 +46,15 @@ public class CommentsController {
     public ResponseEntity getCommByPost(@PathVariable Integer post_id){
         return ResponseEntity.status(HttpStatus.OK).body(commentsService.getCommByPost(post_id));
     }
-    @DeleteMapping("/deleteComm/{content}")
-    public ResponseEntity deleteComm(@PathVariable String content){
-        commentsService.deletcomm(content);
-        return ResponseEntity.status(HttpStatus.OK).body("Bad Comment deleted");
-    }
+    @GetMapping("/getByuAp/{post_id}/{user_id}")
+public ResponseEntity getByuAp(@PathVariable Integer post_id,@PathVariable Integer user_id){
+        return ResponseEntity.status(HttpStatus.OK).body(commentsService.commByUaP(post_id, user_id));
+}
+
+
+//    @DeleteMapping("/deleteComm/{content}")
+//    public ResponseEntity deleteComm(@PathVariable String content){
+//        commentsService.deletcomm(content);
+//        return ResponseEntity.status(HttpStatus.OK).body("Bad Comment deleted");
+//    }
 }

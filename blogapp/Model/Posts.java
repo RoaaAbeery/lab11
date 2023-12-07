@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -31,9 +32,12 @@ public class Posts {
     @NotNull(message = "user id should not be null")
     @Column(columnDefinition = "int not null")
     private Integer user_id;
-    @Column(columnDefinition = "Date")
+    @Column(columnDefinition = "Date ")
     private LocalDate publication_date;
-    @NotEmpty(message = "role should not be empty")
+//@Temporal(TemporalType.TIMESTAMP)
+//@Column(name = "comment_date", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+//private Date publication_date;
+    @NotEmpty(message = "status should not be empty")
     @Pattern(regexp = "^(like|dislike)$",message = "status must be like or dislike")
     @Column(columnDefinition = "varchar(8) not null Check (status='like' or status='dislike') ")
     private String status;

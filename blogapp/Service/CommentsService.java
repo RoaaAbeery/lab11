@@ -62,15 +62,23 @@ public class CommentsService {
         }
 return comments;
     }
-    public void deletcomm(String content){
-        Comments comments=commentsRepository.findCommentsByContent(content);
+
+    public Comments commByUaP(Integer post_id,Integer user_id){
+        Comments comments=commentsRepository.findCommentsByPost_idAndUser_id(post_id, user_id);
         if(comments==null){
-            throw new ApiException("comment not found");
+            throw new ApiException("Comment not found");
         }
-        for (int i = 0; i <getComm().size() ; i++) {
-        if(getComm().get(i).equals(content)){
-            commentsRepository.delete(comments);
-        }
-        }
+        return comments;
     }
+//    public void deletcomm(String content){
+//        Comments comments=commentsRepository.findCommentsByContent(content);
+//        if(comments==null){
+//            throw new ApiException("comment not found");
+//        }
+//        for (int i = 0; i <getComm().size() ; i++) {
+//        if(getComm().get(i).equals(content)){
+//            commentsRepository.delete(comments);
+//        }
+//        }
+//    }
 }
